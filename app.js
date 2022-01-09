@@ -3,10 +3,14 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// 定義與 express-handlebars 有關變數
+const exphbs = require('express-handlebars')
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.set('view engine', 'handlebars')
 
 // localhost:3000
 app.get('/', (req, res) => {
-  res.send('This will be a random password generator')
+  res.render('index')
 })
 
 app.listen(port, () => {
