@@ -3,6 +3,9 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+// 載入 generate_password
+const generatePassword = require('./generate_password')
+
 // 定義與 express-handlebars 有關變數
 const exphbs = require('express-handlebars')
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
@@ -17,8 +20,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  console.log('req.body', req.body)
-  res.render('index')
+  const password = generatePassword(req.body)
+  res.render('index', { password })
 })
 
 app.listen(port, () => {

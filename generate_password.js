@@ -22,7 +22,6 @@ function generatePassword (options) {
   //   excludeCharacters: '4rfv'
   // }
 
-  console.log('options', options)
   // 做一個集合的陣列，儲存所有 user 需要的東西
   let collection = []
 
