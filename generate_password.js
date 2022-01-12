@@ -51,6 +51,12 @@ function generatePassword (options) {
     )
   }
 
+  // 如果 collection 沒有任何東西，就報錯
+
+  if (collection.length === 0) {
+    return 'There is no valid characters in your selector.'
+  }
+
   // 產生密碼
   let password = ''
   for (let i = 1 ; i <= Number(options.length); i++ ) {
